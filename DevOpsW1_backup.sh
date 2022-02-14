@@ -20,7 +20,7 @@ if [  $COMP != "j" ] && [  $COMP != "z" ];
 
 then
 
-echo "parameter is not right please choose j or z for compression ($COMP)" > error.log
+echo "parameter is not right please choose j or z for compression ($COMP)" 2>> error.log
 exit 1
 
 fi
@@ -28,4 +28,4 @@ fi
 
 tar $ZIPOPTION $OUTPUTNAME $FOLDERNAME  &> error.log
 
-openssl aes-256-cbc -a -salt -pbkdf2 -in $OUTPUTNAME -out $OUTPUTNAME$".enc" &>> error.log
+openssl aes-256-cbc -a -salt -pbkdf2 -in $OUTPUTNAME -out $OUTPUTNAME$".enc" >> error.log 2>&1
